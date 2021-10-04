@@ -25,8 +25,6 @@ namespace HabitsTracker
             yearNowState = (yearNow % 4 != 0 || (yearNow % 100 == 0 & yearNow % 400 != 0)) ? false : true;   // проверка на високосный год
             feb = (byte)((yearNowState == true) ? 29 : 28);           // если високосный год, то 29 дней, если нет, то 28
 
-            Console.WriteLine(" year: {0} \n month: {1} \n day: {2}", yearNow, monthNow, dayOfWeekNow);
-
             Dictionary<int, string> monthsNumber = new Dictionary<int, string>(12);  // словарь, который присвоит имя месяцу, по его известному номеру
             monthsNumber.Add(1, "January");
             monthsNumber.Add(2, "February");                          
@@ -58,6 +56,8 @@ namespace HabitsTracker
             months.Add("December", 31);
 
             byte dayNumberInMonth = months[selectMonth];                             // число дней в месяце
+
+            Console.WriteLine(" year: {0} \n month: {1} ({2}) \n day: {3} ({4})", yearNow, selectMonth, monthNow, dayOfWeekNow, numberDayOfWeekNow);
 
             string[] rows = new string[dayNumberInMonth];
 
